@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="welcome-container ">
+    <h1 class="welcome-title">Hoşgeldiniz!</h1>
+    <p class="intro-text">Takvim Uygulamasına hoş geldiniz. Lütfen takvimlerinizi görüntülemek için aşağıdaki bağlantıya tıklayın.</p>
+    <a href="{% url 'calendar_list' %}" class="btn btn-primary">Takvimleri Görüntüle</a>
+  </div>
+{% endblock %}

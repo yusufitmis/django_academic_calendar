@@ -1,0 +1,422 @@
+/* Genel Ayarlar */
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: url('/media/bg.jpg'); /* Resmin yolu */
+  background-size: cover; /* Resmin tüm ekranı kaplamasını sağlar */
+  background-position: center center; /* Resmin merkezde konumlanmasını sağlar */
+  background-attachment: fixed; /* Sayfa kaydırıldığında arka planın sabit kalmasını sağlar */
+  color: #333; /* Koyu metin rengi */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgba(240, 248, 255, 0.8); /* Hafif beyazımsı arka plan */
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(74, 144, 226, 0.8); /* Yarı şeffaf mavi */
+  color: white;
+  padding: 15px 0;
+}
+
+.navbar a {
+  color: white;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #ffd700; /* Hoverda altın sarısı */
+}
+
+/* İçerik Alanı */
+.container {
+  flex: 1;
+  padding: 20px;
+  padding-bottom: 80px; /* Footer için daha fazla boşluk */
+  max-width: 900px;
+}
+
+/* Başlık */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgb(74, 144, 226);
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(74, 144, 226, 0.8); /* Yarı şeffaf mavi */
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Welcome Container */
+.welcome-container {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9); /* Hafif beyaz arka plan */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.welcome-title {
+  font-size: 32px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.intro-text {
+  font-size: 18px;
+  color: #555; /* Daha açık gri tonları */
+  margin-bottom: 30px;
+}
+
+/* Buton Stil */
+.btn-primary {
+  background-color: #4a90e2;
+  color: white;
+  padding: 15px 25px;
+  font-size: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #357ab7; /* Hoverda daha koyu mavi */
+}
+
+/* Formlar ve Butonlar */
+form {
+  background-color: rgba(255, 255, 255, 0.8); /* Hafif beyaz arka plan */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button, .btn {
+  background-color: #4a90e2;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover, .btn:hover {
+  background-color: #357ab7;
+}
+
+/* Form Grup */
+.form-group {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Etiket (Label) */
+.form-group label {
+  font-weight: 600;
+  color: #444;
+  font-size: 1.1rem;
+  flex: 0 0 30%;
+}
+
+/* Input, Select, Textarea Alanları */
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9; /* Daha açık gri tonunda input */
+  color: #333;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
+}
+
+/* Input alanları focus olduğunda renk değişimi */
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Select elementi */
+.form-group select {
+  height: 50px;
+}
+
+/* Textarea */
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+  background-color: #f8f9fa;
+}
+
+/* Placeholder stili */
+.form-group input::placeholder, .form-group select::placeholder, .form-group textarea::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+/* Etkileşimli inputlar ve etiketler için animasyon */
+.form-group input:focus + label, .form-group select:focus + label, .form-group textarea:focus + label {
+  color: #007bff;
+  transform: translateY(-5px);
+  font-size: 0.95rem;
+}
+
+/* Submit Butonunu ortala */
+form button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Etkinlik Listesi */
+.event-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.event-list li {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.event-list li h4 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.event-list li p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Etkinlik Eylemleri */
+.event-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.event-actions a {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.event-actions .btn-info {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.event-actions .btn-danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.event-actions .btn-info:hover {
+  background-color: #138496;
+  transform: translateY(-2px);
+}
+
+.event-actions .btn-danger:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Hata Mesajları */
+.error-message {
+  color: #d9534f;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Sayfa Spacing */
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Tarih Filtreleme Formu Stilleri */
+.date-filter-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background-color: rgba(244, 248, 251, 0.8);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.date-filter-form label {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  justify-self: end;
+  display: block;
+}
+
+.date-filter-form input[type="date"] {
+  padding: 0.6rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.date-filter-form input[type="date"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.date-filter-form button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  justify-self: end;
+  grid-column: span 2;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.date-filter-form button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Silme butonunun sağa yaslanması için */
+.delete-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -20px; /* Buton ile metin arasındaki mesafeyi ayarlamak için */
+}
+
+.simple-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.simple-table th,
+.simple-table td {
+  border: 1px solid #000;
+  padding: 10px; /* Daha büyük bir dolgu */
+  text-align: center; /* Yatay ortalama */
+  vertical-align: middle; /* Dikey ortalama */
+  background-color: #ffffff; /* Kolonların arka plan rengini beyaz yap */
+}
+
+.simple-table th:first-child,
+.simple-table td:first-child {
+  text-align: left; /* İlk sütun için sola yaslama */
+}
+
+.simple-table th {
+  background-color: rgba(74, 144, 226, 1); /* Başlık satırı için hafif gri arka plan */
+  font-weight: bold;
+  font-size: 1.1rem; /* Başlık yazı boyutunu artır */
+  color: white; /* Daha koyu yazı rengi */
+}
+
+.simple-table tr:hover {
+  background-color: #f1f1f1; /* Hover sırasında daha koyu bir gri renk */
+}
+
+.simple-table .btn {
+  margin: 0 5px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+}
+
+.simple-table .btn-info {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+}
+
+.simple-table .btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.simple-table .btn-info:hover {
+  background-color: #138496;
+}
+
+.simple-table .btn-danger:hover {
+  background-color: #c82333;
+}
+
+.highlighted-event {
+  background-color: rgba(74, 144, 226, 1);
+}

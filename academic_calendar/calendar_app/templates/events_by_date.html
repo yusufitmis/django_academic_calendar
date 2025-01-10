@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Olaylar</h1>
+    <form method="get" action="{% url 'events_by_date' %}">
+        <label for="start_date">Başlangıç Tarihi:</label>
+        <input type="date" id="start_date" name="start_date" value="{{ start_date }}">
+
+        <label for="end_date">Bitiş Tarihi:</label>
+        <input type="date" id="end_date" name="end_date" value="{{ end_date }}">
+
+        <button type="submit">Filtrele</button>
+    </form>
+
+    <ul>
+        {% for event in events %}
+            <li>
+                <strong>{{ event.title }}</strong><br>
+                {{ event.start_date }} - {{ event.end_date }}<br>
+                {{ event.description }}
+            </li>
+        {% empty %}
+            <li>Hiçbir olay bulunamadı.</li>
+        {% endfor %}
+    </ul>
+
+
+
+{% endblock %}

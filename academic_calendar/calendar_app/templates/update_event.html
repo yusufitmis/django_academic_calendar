@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1 class="mb-4">Etkinlik Güncelle</h1>
+    <form method="post">
+      {% csrf_token %}
+
+      <!-- Etkinlik Başlığı -->
+      <div class="form-group mb-3">
+        <label for="id_title" class="form-label">Etkinlik Başlığı:</label>
+        {{ form.title }}
+      </div>
+
+      <!-- Güz Başlangıç Tarihi -->
+      <div class="form-group mb-3">
+        <label for="id_start_date" class="form-label">Güz Dönemi Başlangıç Tarihi:</label>
+        {{ form.start_date }}
+      </div>
+
+      <!-- Güz Bitiş Tarihi -->
+      <div class="form-group mb-3">
+        <label for="id_end_date" class="form-label">Güz Dönemi Bitiş Tarihi:</label>
+        {{ form.end_date }}
+      </div>
+
+      <!-- Bahar Başlangıç Tarihi -->
+      <div class="form-group mb-3">
+        <label for="id_start_date_bahar" class="form-label">Bahar Dönemi Başlangıç Tarihi:</label>
+        {{ form.start_date_bahar }}
+      </div>
+
+      <!-- Bahar Bitiş Tarihi -->
+      <div class="form-group mb-3">
+        <label for="id_end_date_bahar" class="form-label">Bahar Dönemi Bitiş Tarihi:</label>
+        {{ form.end_date_bahar }}
+      </div>
+
+      <!-- Takvim Seçimi -->
+      <div class="form-group mb-4">
+        <label for="id_calendar" class="form-label">Takvim Seçin:</label>
+        {{ form.calendar }}
+      </div>
+
+      <!-- Güncelleme ve Geri Dön Butonları -->
+      <button type="submit" class="btn btn-primary me-2">Güncelle</button>
+      <a href="{% url 'event_list' calendar_id=event.calendar.id %}" class="btn btn-secondary">Geri Dön</a>
+    </form>
+  </div>
+{% endblock %}

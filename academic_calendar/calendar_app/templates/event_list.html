@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="calendar-title">{{ calendar.name }} - Etkinlikler</h1>
+
+    <form method="get" class="date-filter-form">
+      <label for="start_date">Başlangıç Tarihi:</label>
+      <input
+          type="date"
+          id="start_date"
+          name="start_date"
+          value="{{ start_date|default:'2024-09-01' }}">
+
+      <label for="end_date">Bitiş Tarihi:</label>
+      <input
+          type="date"
+          id="end_date"
+          name="end_date"
+          value="{{ end_date|default:'2025-08-30' }}">
+
+      <button type="submit" class="btn btn-primary">Filtrele</button>
+    </form>
+
+    {% if not user.is_authenticated %}
+      <a href="{% url 'export_calendar' calendar.id %}" class="btn btn-primary">Takvimi İndir (ICS)</a>
+      <a href="{% url 'export_vcs_calendar' calendar.id %}" class="btn btn-primary">Takvimi İndir (VCS)</a>  <!-- New VCS download button -->
+    {% endif %}
+
+    <table class="simple-table">
+      <thead>
+        <tr>
+          <th rowspan="2">Akademik Olay</th>
+          <th colspan="2">Güz Yarıyılı</th>
+          <th colspan="2">Bahar Yarıyılı</th>
+          {% if user.is_authenticated %}
+            <th rowspan="2">İşlemler</th>
+          {% endif %}
+        </tr>
+        <tr>
+          <th>Başlangıç</th>
+          <th>Bitiş</th>
+          <th>Başlangıç</th>
+          <th>Bitiş</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for event in events %}
+          <tr>
+            <td>{{ event.title }}</td>
+            {% if event.start_date and not event.end_date %}
+              <td colspan="2">{{ event.start_date|date:"d-m-Y"}}</td>
+            {% elif event.start_date and event.end_date %}
+              <td>{{ event.start_date|date:"d-m-Y" }}</td>
+              <td>{{ event.end_date|date:"d-m-Y"}}</td>
+            {% else %}
+              <td colspan="2">-</td>
+            {% endif %}
+
+            {% if event.start_date_bahar and not event.end_date_bahar %}
+              <td colspan="2">{{ event.start_date_bahar|date:"d-m-Y" }}</td>
+            {% elif event.start_date_bahar and event.end_date_bahar %}
+              <td>{{ event.start_date_bahar|date:"d-m-Y" }}</td>
+              <td>{{ event.end_date_bahar|date:"d-m-Y" }}</td>
+            {% else %}
+              <td colspan="2">-</td>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+              <td>
+                <a href="{% url 'update_event' event.id %}" class="btn btn-sm btn-warning">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="{% url 'delete_event' event.id %}" class="btn btn-sm btn-danger">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+              </td>
+            {% endif %}
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="6">Bu tarihlerde hiçbir etkinlik bulunamadı.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
